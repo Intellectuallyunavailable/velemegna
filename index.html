@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            padding: 20px;
+        }
+        .gallery img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center; padding: 20px;">Image Gallery</h1>
+    <div class="gallery">
+        <!-- Images will go here -->
+        <script>
+            const imageFolder = './images/';
+            const totalImages = 52; // Total number of images
+            const gallery = document.querySelector('.gallery');
+            
+            for (let i = 1; i <= totalImages; i++) {
+                const imgElement = document.createElement('img');
+                imgElement.src = `${imageFolder}image${i}.jpg`; // Assuming images are named image1.jpg, image2.jpg, etc.
+                imgElement.alt = `Image ${i}`;
+                gallery.appendChild(imgElement);
+            }
+        </script>
+    </div>
+</body>
+</html>
